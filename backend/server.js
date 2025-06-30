@@ -24,6 +24,9 @@ app.get("/", (req, res) => {
 
 // Main route to connect to API with what it returns; must be async to wait for reponse
 app.post("/message", async (req, res) => {
+
+    const {prompt} = req.body; // Use destructor to get the body
+
     try {
         // Get the chat response
         const aiResponse = await openai.chat.completions.create({
@@ -35,7 +38,7 @@ app.post("/message", async (req, res) => {
                 {
                     role: "user", 
                     // Pass mssg that will be sent 
-                    content: "When was Node.js released? "
+                    content: prompt
                 }
             ]
         })

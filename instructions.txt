@@ -1,5 +1,7 @@
 * Install project
-* Run with: npx http-server ./frontend
+* From main folder, run with: npx http-server ./frontend
+* From frontend folder, run with: npx http-server .
+* Backend: node server.js
 
 * Add the script to float messages to left or right depending on who sent it 
 * Run: npm install express // Helps install files to handle api requests 
