@@ -28,7 +28,7 @@ app.post("/message", async (req, res) => {
         // Get the chat response
         const aiResponse = await openai.chat.completions.create({
             // Specify what model use
-            model: "gpt-3.5-turbo",
+            model: process.env.OPENAI_MODEL,
             // Arr of mssgs bcs maybe need to tell the AI what it needs to act as or give context
             messages: [
                 // Run only sending user role 
