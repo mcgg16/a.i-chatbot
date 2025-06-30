@@ -1,9 +1,12 @@
 * Install project
 * Run with: npx http-server ./frontend
+
 * Add the script to float messages to left or right depending on who sent it 
-* npm install express // Helps install files to handle api requests 
-* npm install body-parser cors
+* Run: npm install express // Helps install files to handle api requests 
+* Run: npm install body-parser cors
   * body-parser to parse the mssg that was sent 
   * Cross-origin resource sharing (CORS) is a mechanism for integrating applications. CORS defines a way for client web applications that are loaded in one domain to interact with resources in a different domain.
 * Create server.js because it is set as the main in package.json. Add the project dependencies, middleware, body parser
 * Run with: node server.js
+
+* Go to backend and run: npm install dotenv
