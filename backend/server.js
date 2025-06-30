@@ -25,7 +25,24 @@ app.get("/", (req, res) => {
 // Main route to connect to API with what it returns; must be async to wait for reponse
 app.post("/message", async (req, res) => {
 
-    const {prompt} = req.body; // Use destructor to get the body
+    const {prompt, previousMessage} = req.body; // Use destructor to get the body, added the prev mssg later on
+
+    let messages = []; 
+
+    // Check if there is already a mssg, put the assistant one first 
+    if (previousMessage) {
+        messages[0] = {
+            "role": "assistant", 
+            "content": "previousMessage"
+        }
+    }
+
+    // Add the user message
+    messages.push({
+        role: "user", 
+        // Pass mssg that will be sent 
+        content: prompt
+    })
 
     try {
         // Get the chat response
@@ -33,14 +50,19 @@ app.post("/message", async (req, res) => {
             // Specify what model use
             model: process.env.OPENAI_MODEL,
             // Arr of mssgs bcs maybe need to tell the AI what it needs to act as or give context
-            messages: [
-                // Run only sending user role 
-                {
-                    role: "user", 
-                    // Pass mssg that will be sent 
-                    content: prompt
-                }
-            ]
+            messages: messages // Update to arr w mssgs 
+            /*
+                [
+                    // Used this only when testing dev w/o context
+                    // Run only sending user role 
+                    {
+                        role: "user", 
+                        // Pass mssg that will be sent 
+                        content: prompt
+                    }
+                    
+                ]
+            */
         })
 
         // Get the AI response

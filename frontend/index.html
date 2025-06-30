@@ -28,7 +28,8 @@
     </div>
 
     <script>
-        // Javascript goes here
+        // Var to store prev mssg
+        let previousMessage; 
 
         // Must be async to use the await
         async function sendMessage() {
@@ -45,11 +46,13 @@
             try {
                 // Call backend function
                 const response = await axios.post("http://localhost:1330/message", {
-                    prompt: userMessage
+                    prompt: userMessage,
+                    previousMessage
                 })
 
                 // Once have the message, append the aiResponse sent by the chatbot 
-                appendMessage(response.data.message, "bot")
+                appendMessage(response.data.message, "bot"); 
+                previousMessage = response.data.message; // Sets curr mssg to prev mssg
 
             } catch (error) {
                 console.error(error); 

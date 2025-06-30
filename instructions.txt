@@ -23,3 +23,4 @@
 * Use tool like postman, localhost:1330/message and then click send to see what the result is like. Had to modify some code bcs of newer version. 
 
 * Go to index.html endpoing and can change it to http://localhost:1330/message to call endpoint and call w prompt from input box
+* Change front and back to keep the messages (from user and assistant) so that it is possible to add context to the AI
