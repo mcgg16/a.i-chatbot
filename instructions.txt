@@ -10,3 +10,11 @@
 * Run with: node server.js
 
 * Go to backend and run: npm install dotenv
+* Then create .env file in backend, add var like OPENAI_API_KEY and copy paste the string key
+
+* Create base routes with the "/" and req, res
+
+* Install open AI library run: npm install openai
+* Set the Configuration and pass it to the OPENAI_API_KEY
+* Custom the /message to specify what ai model is being used, role, content, etc., and then get the result. 
+* Cannot run from browser rn, but use tool like postman, localhost:1330/message and then click send to see what the result is
