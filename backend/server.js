@@ -44,7 +44,10 @@ app.post("/message", async (req, res) => {
         res.json({
                 // Extract the result from possible answers, rn only taking first one and extracting the message it has
                 //ai_response: aiResponse.data.choices[0].message
-                ai_response: aiResponse.choices[0].message.content
+                
+                // ai_response: aiResponse.choices[0].message.content // Works now w this 
+
+                ai_response: aiResponse.choices[0].message
             })
     } catch (error) {
         console.error(error); // Print out the error
