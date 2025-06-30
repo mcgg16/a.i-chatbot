@@ -50,7 +50,9 @@ app.post("/message", async (req, res) => {
                 
                 // ai_response: aiResponse.choices[0].message.content // Works now w this 
 
-                ai_response: aiResponse.choices[0].message
+                
+                message: aiResponse.choices[0].message.content,
+                role: aiResponse.choices[0].message.role,
             })
     } catch (error) {
         console.error(error); // Print out the error
